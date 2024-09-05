@@ -1,16 +1,12 @@
 
-public class AddTextCommand implements ICommand{
-	private TextEditor editor;
-	private String text;
-	
-	public AddTextCommand(TextEditor editor, String text) {
-		this.editor = editor;
-		this.text = text;
+public class AddTextCommand extends TextAlternatingCommand{
+	public AddTextCommand(TextEditor editor, String text, int start) {
+		super(editor, text, start);
 	}
 	
 	@Override
 	public void execute() {
-		editor.addText(text);
+		editor.addText(text, start_index);
 		System.out.println(editor.toString());
 	}
 
@@ -18,7 +14,7 @@ public class AddTextCommand implements ICommand{
 	public void undo() {
 		int i = text.length();
 		int start = editor.toString().length() - i;
-		editor.removeText(start);
+		editor.removeText(start, editor.toString().length());
 		System.out.println(editor.toString());
 	}
 	

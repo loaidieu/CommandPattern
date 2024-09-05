@@ -6,12 +6,16 @@ public class TextEditor {
 		this.text = new StringBuilder(text);
 	}
 	
-	public void addText(String append) {
-		text.append(append);
+	public void addText(String append, int start_index) {
+		text.insert(start_index, text);
 	}
 	
-	public void removeText(int i) {
-		text.delete(i, text.length());
+	public void removeText(int start, int end) {
+		text.delete(start, end);
+	}
+	
+	public String getString(int start, int end) {
+		return text.substring(start, end);
 	}
 	
 	@Override
