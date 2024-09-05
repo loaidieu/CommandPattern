@@ -7,7 +7,7 @@ public class TextEditor {
 	}
 	
 	public void addText(String append, int start_index) {
-		text.insert(start_index, text);
+		text.insert(start_index, append);
 	}
 	
 	public void removeText(int start, int end) {
@@ -16,6 +16,11 @@ public class TextEditor {
 	
 	public String getString(int start, int end) {
 		return text.substring(start, end);
+	}
+	
+	public int getLastIndex()
+	{
+		return text.length();
 	}
 	
 	@Override

@@ -4,6 +4,10 @@ public class AddTextCommand extends TextAlternatingCommand{
 		super(editor, text, start);
 	}
 	
+	public AddTextCommand(TextEditor editor, String text) {
+		super(editor, text, editor.getLastIndex());
+	}
+	
 	@Override
 	public void execute() {
 		editor.addText(text, start_index);

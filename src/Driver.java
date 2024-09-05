@@ -9,5 +9,13 @@ public class Driver {
 		manager.executeCommand(appendTextCommand);
 		manager.undo();
 		manager.redo();
+		
+		
+		System.out.println("----------------------------");
+		System.out.println("original text is ");
+		System.out.println(editor.toString());
+		ICommand removeCommand = new RemoveTextCommand(editor,6,15);
+		manager.executeCommand(removeCommand);
+		manager.undo();
 	}
 }

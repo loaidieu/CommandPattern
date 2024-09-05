@@ -13,7 +13,8 @@ public class RemoveTextCommand extends TextAlternatingCommand{
 
 	@Override
 	public void undo() {
-		editor
+		editor.addText(text, start_index);
+		System.out.println(editor.toString());
 	}
 
 }
